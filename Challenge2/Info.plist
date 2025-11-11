@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to show you on the map with friends</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>Find and interact with nearby users</string>
+
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_insta-nearby._tcp</string>
+        <string>_insta-nearby._udp</string>
+    </array>
+
+    <key>NSNearbyInteractionUsageDescription</key>
+    <string>Discover and interact with nearby friends</string>
+
+    <key>NSNearbyInteractionAllowOnceUsageDescription</key>
+    <string>Allow to interact with nearby users for the thrill feature</string>
+
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Connect with nearby friends</string>
+
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Connect with nearby friends</string>
+</dict>
+</plist>
