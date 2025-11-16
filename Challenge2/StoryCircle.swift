@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UIKit
 // StoryCircle.swift
 struct StoryCircle: View {
     let user: User
@@ -29,8 +30,16 @@ struct StoryCircle: View {
                     .fill(Color(.systemGray5))
                     .frame(width: 70, height: 70)
                 
-                Text(user.profileImage)
-                    .font(.system(size: 30))
+                if UIImage(named: user.profileImage) != nil {
+                    Image(user.profileImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 70)
+                        .clipShape(Circle())
+                } else {
+                    Text(user.profileImage)
+                        .font(.system(size: 30))
+                }
             }
             
             Text(user.name)

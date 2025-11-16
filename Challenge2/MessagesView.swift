@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UIKit
 // MessagesView.swift - Main messages screen
 struct MessagesView: View {
     @State private var searchText = ""
@@ -63,9 +64,21 @@ struct MessagesView: View {
                         }
                     }
                 }
-                .navigationTitle("username")
+                .navigationTitle(Text(verbatim: "__jk1_"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if UIImage(named: SampleData.currentUser.profileImage) != nil {
+                            Image(SampleData.currentUser.profileImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                        } else {
+                            Text(SampleData.currentUser.profileImage)
+                                .font(.system(size: 20))
+                        }
+                    }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {}) {
                             Image(systemName: "square.and.pencil")

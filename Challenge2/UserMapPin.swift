@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UIKit
 // UserMapPin.swift
 struct UserMapPin: View {
     let user: User
@@ -22,8 +23,16 @@ struct UserMapPin: View {
                     .stroke(Color.blue, lineWidth: 3)
                     .frame(width: 46, height: 46)
                 
-                Text(user.profileImage)
-                    .font(.system(size: 22))
+                if UIImage(named: user.profileImage) != nil {
+                    Image(user.profileImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 46, height: 46)
+                        .clipShape(Circle())
+                } else {
+                    Text(user.profileImage)
+                        .font(.system(size: 22))
+                }
             }
             .shadow(radius: 4)
             

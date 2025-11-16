@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UIKit
 // StoriesRow.swift - Horizontal stories scroll
 struct StoriesRow: View {
     @Binding var showMapModal: Bool
@@ -22,6 +23,17 @@ struct StoriesRow: View {
                         Circle()
                             .fill(Color(.systemGray6))
                             .frame(width: 70, height: 70)
+                        
+                        if UIImage(named: SampleData.currentUser.profileImage) != nil {
+                            Image(SampleData.currentUser.profileImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 70, height: 70)
+                                .clipShape(Circle())
+                        } else {
+                            Text(SampleData.currentUser.profileImage)
+                                .font(.system(size: 30))
+                        }
                         
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 24))

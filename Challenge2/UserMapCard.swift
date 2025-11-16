@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import UIKit
 // UserMapCard.swift
 struct UserMapCard: View {
     let user: User
@@ -15,8 +16,16 @@ struct UserMapCard: View {
     var body: some View {
         Button(action: onTap) {
             HStack(spacing: 12) {
-                Text(user.profileImage)
-                    .font(.system(size: 24))
+                if UIImage(named: user.profileImage) != nil {
+                    Image(user.profileImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                } else {
+                    Text(user.profileImage)
+                        .font(.system(size: 24))
+                }
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(user.name)

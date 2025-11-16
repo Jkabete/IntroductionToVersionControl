@@ -7,6 +7,7 @@
 // ChatRow.swift
 
 import SwiftUI
+import UIKit
 
 struct ChatRow: View {
     let chat: Chat
@@ -19,8 +20,16 @@ struct ChatRow: View {
                     .fill(Color(.systemGray5))
                     .frame(width: 56, height: 56)
                 
-                Text(chat.user.profileImage)
-                    .font(.system(size: 26))
+                if UIImage(named: chat.user.profileImage) != nil {
+                    Image(chat.user.profileImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 56, height: 56)
+                        .clipShape(Circle())
+                } else {
+                    Text(chat.user.profileImage)
+                        .font(.system(size: 26))
+                }
                 
                 if chat.isActive {
                     Circle()
